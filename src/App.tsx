@@ -50,7 +50,7 @@ function App() {
       console.log(response.data.reverse());
     } catch (error) {
       console.error("Error fetching data:", error);
-      toast.error("Error fetching data. Please try again later.");
+      toast.error("Fehler beim Abrufen der Daten. Bitte versuchen Sie es später erneut.");
     } finally {
       setLoading(false);
     }
@@ -74,10 +74,10 @@ function App() {
       const response = await axios.delete(`${baseURL}guests_list/${id}`);
       fetchData();
       setOpenModal(false); // Close the modal after deletion
-      toast.success("Item deleted successfully!");
+      toast.success("Karte erfolgreich gelöscht!");
     } catch (error) {
       console.error("Error deleting item:", error);
-      toast.error("Error deleting item. Please try again later.");
+      toast.error("Fehler beim Löschen der Karte. Bitte versuchen Sie es später erneut.");
     } finally {
       setDeleteLoading(false);
     }
@@ -125,7 +125,7 @@ function App() {
         const response = await axios.post(baseURL + "fill-image", payload);
         const imageData = response.data;
         toast.success(
-          `The invitation card for ${formData.name} was successfully generated!`,
+          `Die Einladungskarte für ${formData.name} wurde erfolgreich erstellt!`,
           { position: "top-right" }
         );
         fetchData();
@@ -135,12 +135,12 @@ function App() {
         });
       } catch (error) {
         console.error("Error submitting form:", error);
-        toast.error("Something went wrong. Please try again later.");
+        toast.error("Etwas ist schief gelaufen. Bitte versuchen Sie es später erneut.");
       } finally {
         setSendLoading(false);
       }
     } else {
-      toast.error("Please enter a name and number!", { position: "top-right" });
+      toast.error("Bitte geben Sie einen Namen und eine Nummer ein!", { position: "top-right" });
     }
   };
 
@@ -166,7 +166,7 @@ function App() {
       }
     } catch (error) {
       console.error("Error sharing image:", error);
-      toast.error("Error sharing image. Please try again later.");
+      toast.error("Fehler beim Teilen des Bildes. Bitte versuchen Sie es später erneut.");
     }
   };
 
@@ -189,7 +189,7 @@ function App() {
       // });
     } catch (error) {
       console.error("Error downloading image:", error);
-      toast.error("Error downloading image. Please try again later.");
+      toast.error("Fehler beim Herunterladen des Bildes. Bitte versuchen Sie es später erneut.");
     }
   };
 
